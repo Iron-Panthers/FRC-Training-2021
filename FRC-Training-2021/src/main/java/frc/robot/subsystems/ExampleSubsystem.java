@@ -4,11 +4,20 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.can.TalonFX;
+
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class ExampleSubsystem extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  public ExampleSubsystem() {}
+  private Spark motor1;
+  private TalonFX motor2;
+  public ExampleSubsystem() {
+	  motor1 = new Spark(Constants.ExampleSubsystem.MOTOR_1_PORT); // What does 6 mean anyway?
+	  motor2 = new TalonFX(Constants.ExampleSubsystem.MOTOR_2_PORT);
+  }
 
   @Override
   public void periodic() {
