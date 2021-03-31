@@ -21,6 +21,10 @@ public class Drivebase extends SubsystemBase {
         leftFMotor = new TalonFX(Constants.Drivebase.LEFTFMOTOR_PORT);
         rightBMotor = new TalonFX(Constants.Drivebase.RIGHTBMOTOR_PORT);
         leftBMotor = new TalonFX(Constants.Drivebase.LEFTBMOTOR_PORT);
+
+        // make the back motors follow the front moters
+        rightBMotor.follow(rightFMotor);
+        leftBMotor.follow(leftFMotor);
     }
 
     @Override
