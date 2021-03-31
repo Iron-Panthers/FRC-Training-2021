@@ -16,9 +16,14 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class ExampleSubsystem extends SubsystemBase {
-  /** Creates a new ExampleSubsystem. */
+  
+  // Variables to hold motor objects
   private Spark motor1;
   private TalonFX motor2;
+  
+  // Max speed we will allow robot to go
+  private static final double MAX_SPEED = 0.8;
+  
   public ExampleSubsystem() {
 	  motor1 = new Spark(Constants.ExampleSubsystem.MOTOR_1_PORT); 
 	  motor2 = new TalonFX(Constants.ExampleSubsystem.MOTOR_2_PORT);
@@ -37,10 +42,10 @@ public class ExampleSubsystem extends SubsystemBase {
   public void setMotors(double inp_speed)
   {
     // Set the speed of the different motors accordingly
-    motor1.set(inp_speed);
+    motor1.set(inp_speed * MAX_SPEED);
     
     // Because the motors are facing opposite directions
     // it's important to invert the spin direction on the opposing motor
-    motor2.set(-inp_speed);
+    motor2.set(-inp_speed * MAX_SPEED);
   }
 }
