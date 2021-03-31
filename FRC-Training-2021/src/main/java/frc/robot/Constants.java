@@ -16,5 +16,10 @@ public final class Constants {
 	public final class ExampleSubsystem {
 		public static final int MOTOR_1_PORT = 6;
 		public static final int MOTOR_2_PORT = 21;
+
+		public static final int MOTOR_1_LEADER = 1;
+		public static final int MOTOR_2_LEADER = 2;
+		public static final int MOTOR_1_FOLLOW = 10;
+		public static final int MOTOR_2_FOLLOW = 11;
 	}
 }

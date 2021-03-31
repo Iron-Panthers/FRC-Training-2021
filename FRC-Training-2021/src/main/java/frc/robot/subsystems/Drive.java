@@ -8,9 +8,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Drive extends SubsystemBase {
   /** Creates a new Drive. */
-  public Drive() {
-    
-  }
+  public Drive() {}
 
   @Override
   public void periodic() {
