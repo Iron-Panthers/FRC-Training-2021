@@ -23,7 +23,7 @@ public class ExampleCommand extends CommandBase {
   private Joystick m_joystick;
   
   // Variables to hold data about joystick positioning
-  private int joy_x, joy_y;
+  private double joy_x, joy_y;
 
   
   public ExampleCommand(ExampleSubsystem subsystem) {
