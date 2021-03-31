@@ -10,13 +10,11 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 /** An example command that uses an example subsystem. */
 public class ExampleCommand extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
+  
+  // The subsystem we are using
   private final ExampleSubsystem m_subsystem;
 
-  /**
-   * Creates a new ExampleCommand.
-   *
-   * @param subsystem The subsystem used by this command.
-   */
+  
   public ExampleCommand(ExampleSubsystem subsystem) {
     m_subsystem = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
@@ -28,7 +26,7 @@ public class ExampleCommand extends CommandBase {
   public void initialize()
   {
     // We want to be sure that nothing is moving when we start
-    ExampleSubsystem.setMotors(0.0);
+    m_subsystem.setMotors(0.0);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -39,7 +37,7 @@ public class ExampleCommand extends CommandBase {
   @Override
   public void end(boolean interrupted)
   {
-    // Like initing, we want to make sure nothing is moving
+    // Like initing, we want to make sure nothing is moving on exit
     ExampleSubsystem.setMotors(0.0);
   }
 
