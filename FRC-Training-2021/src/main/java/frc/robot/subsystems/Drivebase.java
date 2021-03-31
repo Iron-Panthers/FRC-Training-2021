@@ -5,15 +5,22 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
+import edu.wpi.first.wpilibj.Spark;
 
 public class Drivebase extends SubsystemBase {
-  /** Creates a new Drivebase. */
-  public Drivebase() {
-      //moters be made here
-  }
+    /** Creates a new Drivebase. */
+    private Spark rightMotor;
+    private Spark leftMotor;
 
-  @Override
-  public void periodic() {
-    // This method will be called once per scheduler run
-  }
+    public Drivebase() {
+        // moters be made here
+        rightMotor = new Spark(Constants.Drivebase.RIGHTMOTOR_PORT);
+        leftMotor = new Spark(Constants.Drivebase.LEFTMOTOR_PORT);
+    }
+
+    @Override
+    public void periodic() {
+        // This method will be called once per scheduler run
+    }
 }
