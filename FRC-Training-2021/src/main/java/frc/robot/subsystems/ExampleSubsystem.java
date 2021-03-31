@@ -42,6 +42,7 @@ public class ExampleSubsystem extends SubsystemBase {
     // This method will be called once per scheduler run during simulation
   }
   
+  // These two functions will be for setting the motors
   public void setMotors(double inp_speed)
   {
     // Set the speed of the different motors accordingly
@@ -50,5 +51,12 @@ public class ExampleSubsystem extends SubsystemBase {
     // Because the motors are facing opposite directions
     // it's important to invert the spin direction on the opposing motor
     motor2.set(-inp_speed * MAX_SPEED);
+  }
+  
+  public void setMotors(double inp_speed_lft, double inp_speed_rgt)
+  {
+    // Same as above, but for different speeds
+    motor1.set(inp_speed_lft * MAX_SPEED);
+    motor2.set(-inp_speed_rgt * MAX_SPEED);
   }
 }
