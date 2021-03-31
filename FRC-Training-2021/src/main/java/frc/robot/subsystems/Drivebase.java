@@ -6,17 +6,21 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
-import edu.wpi.first.wpilibj.Spark;
+import com.ctre.phoenix.motorcontrol.can.TalonFX;
 
 public class Drivebase extends SubsystemBase {
     /** Creates a new Drivebase. */
-    private Spark rightMotor;
-    private Spark leftMotor;
+    private TalonFX rightFMotor;
+    private TalonFX leftFMotor;
+    private TalonFX rightBMotor;
+    private TalonFX leftBMotor;
 
     public Drivebase() {
         // moters be made here
-        rightMotor = new Spark(Constants.Drivebase.RIGHTMOTOR_PORT);
-        leftMotor = new Spark(Constants.Drivebase.LEFTMOTOR_PORT);
+        rightFMotor = new TalonFX(Constants.Drivebase.RIGHTFMOTOR_PORT);
+        leftFMotor = new TalonFX(Constants.Drivebase.LEFTFMOTOR_PORT);
+        rightBMotor = new TalonFX(Constants.Drivebase.RIGHTBMOTOR_PORT);
+        leftBMotor = new TalonFX(Constants.Drivebase.LEFTBMOTOR_PORT);
     }
 
     @Override
