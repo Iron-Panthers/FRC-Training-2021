@@ -13,6 +13,12 @@ public class ExampleCommand extends CommandBase {
   
   // The subsystem we are using
   private final ExampleSubsystem m_subsystem;
+  
+  // Joystick robot will use (teleoperated)
+  private Joystick m_joystick;
+  
+  // Variables to hold data about joystick positioning
+  private int joy_x, joy_y;
 
   
   public ExampleCommand(ExampleSubsystem subsystem) {
@@ -27,11 +33,20 @@ public class ExampleCommand extends CommandBase {
   {
     // We want to be sure that nothing is moving when we start
     m_subsystem.setMotors(0.0);
+    
+    // Init the joystick
+    m_joystick = new Joystick(JOYSTICK_PORT);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute()
+  {
+    // Get the different axises
+    joy_x = m_joystick.getX();
+    joy_y = m_joystick.getY();
+    
+  }
 
   // Called once the command ends or is interrupted.
   @Override
