@@ -25,7 +25,11 @@ public class ExampleCommand extends CommandBase {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize()
+  {
+    // We want to be sure that nothing is moving when we start
+    ExampleSubsystem.setMotors(0.0);
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
@@ -33,7 +37,11 @@ public class ExampleCommand extends CommandBase {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted)
+  {
+    // Like initing, we want to make sure nothing is moving
+    ExampleSubsystem.setMotors(0.0);
+  }
 
   // Returns true when the command should end.
   @Override

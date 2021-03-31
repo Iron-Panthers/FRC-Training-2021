@@ -24,18 +24,21 @@ public class ExampleSubsystem extends SubsystemBase {
   // Max speed we will allow robot to go
   private static final double MAX_SPEED = 0.8;
   
-  public ExampleSubsystem() {
+  public ExampleSubsystem()
+  {
 	  motor1 = new Spark(Constants.ExampleSubsystem.MOTOR_1_PORT); 
 	  motor2 = new TalonFX(Constants.ExampleSubsystem.MOTOR_2_PORT);
   }
 
   @Override
-  public void periodic() {
+  public void periodic()
+  {
     // This method will be called once per scheduler run
   }
 
   @Override
-  public void simulationPeriodic() {
+  public void simulationPeriodic()
+  {
     // This method will be called once per scheduler run during simulation
   }
   
