@@ -6,6 +6,8 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
+
+import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 
 public class Drivebase extends SubsystemBase {
@@ -25,6 +27,18 @@ public class Drivebase extends SubsystemBase {
         // make the back motors follow the front moters
         rightBMotor.follow(rightFMotor);
         leftBMotor.follow(leftFMotor);
+    }
+
+    public void setRight(double speed) {
+        rightFMotor.set(TalonFXControlMode.PercentOutput, speed);
+    }
+    public void setLeft(double speed) {
+        leftFMotor.set(TalonFXControlMode.PercentOutput, speed);
+    }
+
+    public void setBoth(double speed) {
+        this.setRight(speed);
+        this.setLeft(speed);
     }
 
     @Override
