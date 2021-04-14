@@ -4,11 +4,21 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
+
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class Drive extends SubsystemBase {
   /** Creates a new Drive. */
-  public Drive() {}
+    private WPI_TalonFX left_follow = new WPI_TalonFX(Constants.DriveSubsystem.MOTOR_1_FOLLOW);
+    private WPI_TalonFX left_leader = new WPI_TalonFX(Constants.DriveSubsystem.MOTOR_1_LEADER);
+    private WPI_TalonFX right_leader = new WPI_TalonFX(Constants.DriveSubsystem.MOTOR_2_LEADER);
+    private WPI_TalonFX right_follow = new WPI_TalonFX(Constants.DriveSubsystem.MOTOR_2_FOLLOW);
+  public Drive() {
+    left_leader.follow(left_follow);
+    right_leader.follow(right_follow);
+  }
 
   @Override
   public void periodic() {

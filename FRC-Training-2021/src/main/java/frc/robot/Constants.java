@@ -13,7 +13,7 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-	public final class ExampleSubsystem {
+	public final class DriveSubsystem {
 		public static final int MOTOR_1_PORT = 6;
 		public static final int MOTOR_2_PORT = 21;
 
