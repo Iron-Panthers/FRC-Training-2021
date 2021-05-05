@@ -11,7 +11,7 @@ public class DriveCommand extends CommandBase {
   /** Creates a new DriveCommand. */
   private final Drive drive;
   private final double x, y;
-
+  private double leftSpeed, rightSpeed;
   public DriveCommand(double x, double y, Drive drive) {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(drive);
@@ -32,9 +32,16 @@ public class DriveCommand extends CommandBase {
   public void execute() {
     // set left + right as x + y 
     // x = y --> go forward/backward, x > y --> turn right, x < y --> turn left
-    double leftSpeed = x;
-    double rightSpeed = y;
+     leftSpeed = x + y;
+     rightSpeed = x - y;
+     
+    if(leftSpeed > 1 || rightSpeed > 1){
+      leftSpeed = leftSpeed/2;
+      rightSpeed = rightSpeed/2;
+    }
 
+    // x + y = left x - y = right 
+    // if it goes over 1 then do something about it 
     drive.setPower(0.5, 0.5);
   }
 
